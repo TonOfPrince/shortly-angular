@@ -27,10 +27,7 @@ angular.module('shortly.services', [])
       data: link
     })
     .then(function (resp) {
-      resp.status = 201;
-      console.log('asfsdfsdafsdfadsf');
-      console.log(resp);
-      return resp.data('');
+      return resp.data;
     });
   };
 
