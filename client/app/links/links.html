@@ -1,16 +1,12 @@
 <div id='links'>
   <!-- Your html here -->
   <h1>Shortened Links</h1>
-  <form name="shortenForm" ng-submit='getLinks()' novalidate>
-    <label> Search for a shortened link! </label> </br>
-    <input type='url' name='shortUrl' ng-model='url' required>
-    <div> {{url}} </div>
-    <button type='submit'>Get Links!</button>
-  </form>
-  <a href="#/shorten">Shorten View</a>
-  <ul>
-      <li ng-repeat="url in data.links | orderBy:'visits': true">
-        {{ url | json }}
-      </li>
-    </ul>
+  Search: <input ng-model="urlText">
+  <table id="searchUrls">
+  <tr><th>Code</th><th>Url</th></tr>
+  <tr ng-repeat="url in data.links | orderBy:'visits': true |filter:urlText">
+    <td>{{ url.code }}</td>
+    <td>{{ url.url }}</td>
+  </tr>
+</table>
 </div>
