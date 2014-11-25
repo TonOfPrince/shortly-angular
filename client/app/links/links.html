@@ -1,11 +1,16 @@
 <div id='links'>
   <!-- Your html here -->
-  <h1>shortened links</h1>
-  <form name="shortenForm" ng-submit='addLink()' novalidate>
+  <h1>Shortened Links</h1>
+  <form name="shortenForm" ng-submit='getLinks()' novalidate>
+    <label> Search for a shortened link! </label> </br>
     <input type='url' name='shortUrl' ng-model='url' required>
-    <p ng-show='shortenForm.shortUrl.$invalid || shortenForm.shortUrl.$pristine'>Please input valid URL: 'http://www.url.com'</p>
     <div> {{url}} </div>
-    <button type='submit' ng-disabled='shortenForm.$invalid'>shorten</button>
+    <button type='submit'>Get Links!</button>
   </form>
   <a href="#/shorten">Shorten View</a>
+  <ul>
+      <li ng-repeat="url in data.links | orderBy:'visits': true">
+        {{ url | json }}
+      </li>
+    </ul>
 </div>
