@@ -2,6 +2,7 @@
   <!-- Your html here -->
   <h1>Shortened Links</h1>
   Search: <input ng-model="urlText">
+
   <table id="searchUrls">
   <tr><th>Code</th><th>Url</th></tr>
   <tr ng-repeat="url in data.links | orderBy:'visits': true |filter:urlText">
