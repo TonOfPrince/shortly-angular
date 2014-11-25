@@ -1,6 +1,13 @@
 <div id='container'>
 <!-- Your code here -->
-
+<h1>shorten</h1>
+  <form name="shortenForm" ng-submit='addLink()' novalidate>
+    <input type='url' name='shortUrl' ng-model='url' required>
+    <p ng-show='shortenForm.shortUrl.$invalid || shortenForm.shortUrl.$pristine'>Please input valid URL: 'http://www.url.com'</p>
+    <div> {{url}} </div>
+    <button type='submit' ng-disabled='shortenForm.$invalid'>shorten</button>
+  </form>
+  <a href="#/links">Links View</a>
 </div>
 
 
