@@ -3,33 +3,55 @@ angular.module('shortly', [
   'shortly.links',
   'shortly.shorten',
   'shortly.auth',
-  'ngRoute'
+  // 'ngRoute'
+  'ui.router'
 ])
-.config(function($routeProvider, $httpProvider) {
-  $routeProvider
-    .when('/', {
+
+.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+  $urlRouterProvider.otherwise("/links");
+
+  $stateProvider
+    .state('links', {
       templateUrl: 'app/links/links.html',
-      controller: 'LinksController'
+      controller: 'LinksController',
+      url: '/links'
     })
-    .when('/signin', {
-      templateUrl: 'app/auth/signin.html',
-      controller: 'AuthController'
-    })
-    .when('/signup', {
-      templateUrl: 'app/auth/signup.html',
-      controller: 'AuthController'
-    })
-    .when('/links', {
-      templateUrl: 'app/links/links.html',
-      controller: 'LinksController'
-    })
-    .when('/shorten', {
+    .state('shorten', {
       templateUrl: 'app/shorten/shorten.html',
-      controller: 'ShortenController'
+      controller: 'ShortenController',
+      url: '/shorten'
     })
-    .otherwise({
-      redirectTo: '/'
+    .state('signin', {
+      templateUrl: 'app/auth/signin.html',
+      controller: 'AuthController',
+      url:'/signin'
+    })
+    .state('signup', {
+      templateUrl: 'app/auth/signin.html',
+      controller: 'AuthController',
+      url:'/signup'
     });
+// .config(function($routeProvider, $httpProvider) {
+//   $routeProvider
+//     .when('/signin', {
+      // templateUrl: 'app/auth/signin.html',
+      // controller: 'AuthController'
+//     })
+//     .when('/signup', {
+      // templateUrl: 'app/auth/signup.html',
+      // controller: 'AuthController'
+//     })
+//     .when('/links', {
+      // templateUrl: 'app/links/links.html',
+      // controller: 'LinksController'
+//     })
+//     .when('/shorten', {
+      // templateUrl: 'app/shorten/shorten.html',
+      // controller: 'ShortenController'
+//     })
+//     .otherwise({
+//       redirectTo: '/links'
+//     });
 
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls

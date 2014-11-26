@@ -1,13 +1,19 @@
 <div id='container'>
 <!-- Your code here -->
-<h1>Shorten A Links</h1>
-  <form name="shortenForm" ng-submit='addLink(url)' novalidate>
-    <label> Add a link! </label> </br>
-    <input type='url' name='shortUrl' ng-model='url' required>
-    <p ng-show='shortenForm.shortUrl.$invalid || shortenForm.shortUrl.$pristine'>Please input valid URL: 'http://www.url.com'</p>
-    <div> {{url}} </div>
-    <button type='submit' ng-disabled='shortenForm.$invalid'>shorten</button>
-  </form>
+<div class="text-center">
+  <h1>Shorten A Links</h1>
+</div>
+  <div class="col-xs-6 col-xs-offset-3">
+    <form name="shortenForm" ng-submit='addLink(url)' novalidate>
+      <div class="form-group" ng-class="{ 'has-error' : shortenForm.shortUrl.$invalid || shortenForm.shortUrl.$pristine}">
+        <label> Add a link! </label> </br>
+        <input type='url' name='shortUrl' ng-model='url' class="form-control" required>
+        <p ng-show='shortenForm.shortUrl.$invalid || shortenForm.shortUrl.$pristine'>Please input valid URL: 'http://www.url.com'</p>
+      </div>
+      <div> {{url}} </div>
+      <button type='submit' ng-disabled='shortenForm.$invalid'>shorten</button>
+    </form>
+  </div>
 </div>
 
 

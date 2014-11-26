@@ -4,7 +4,6 @@ angular.module('shortly.services', [])
   // Your code here
 
   var getLinks = function(){
-  console.log('link factory')
     return $http({
       method: 'GET',
       url: '/api/links'

@@ -7,7 +7,6 @@ angular.module('shortly.links', [])
   };
 
   $scope.getLinks = function(){
-    console.log('i got called at links hs')
     Links.getLinks()
       .then(function (data){
         $scope.data.links = data;

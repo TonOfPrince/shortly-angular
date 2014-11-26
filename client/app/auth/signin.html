@@ -1,6 +1,6 @@
 <div id='signin'>
   <h1>signin</h1>
-  <form name="signinForm" ng-submit='signin()'>
+  <form name="signinForm" ng-submit='signin()' novalidate>
     <label> Username </label>
     <input type='text' name='username' ng-model='user.username' ng-minlength="3" ng-maxlength="8" required>
     <p ng-show="signinForm.username.$error.minlength">Username is too short.</p>
